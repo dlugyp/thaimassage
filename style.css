@@ -48,7 +48,7 @@ a:hover {
   padding: 0 1.5rem;
 }
 
-/* Header */
+/* HEADER */
 
 .site-header {
   background: var(--white);
@@ -95,56 +95,76 @@ a:hover {
   background: var(--primary);
 }
 
-/* Hero */
+/* HERO (INDEX) */
 
-.hero {
-  position: relative;
-  min-height: 60vh;
-  color: var(--white);
+.hero-logo {
+  background: var(--bg-alt);
+  padding: 4rem 0 3rem;
+}
+
+.hero-flex {
   display: flex;
+  justify-content: center;
+}
+
+.hero-text {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  overflow: hidden;
+  width: 100%;
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.6);
-  transform: scale(1.05);
+.hero-text-inner {
+  max-width: 600px;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent),
-              linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+.hero-logo-wrapper {
+  margin-left: 2rem;
 }
 
-.hero-content {
-  position: relative;
-  padding: 4rem 0;
+.hero-logo-img {
+  width: 180px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
 }
 
-.hero h1 {
-  font-size: clamp(2.1rem, 4vw, 2.8rem);
-  margin-bottom: 0.75rem;
+.hero-text h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin-bottom: 0.5rem;
 }
 
-.hero p {
+.hero-text p {
   max-width: 32rem;
-  font-size: 1.05rem;
   margin-bottom: 1.5rem;
+  font-size: 1.05rem;
 }
 
-.hero-actions {
+/* PAGE HERO (PRICES + CONTACT) */
+
+.page-hero {
+  padding: 3rem 0 1rem;
+  background: var(--bg-alt);
+}
+
+.page-hero.small {
+  padding: 2.5rem 0 1rem;
+}
+
+.hero-page-flex {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Buttons */
+.page-logo {
+  width: 140px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
+}
+
+/* BUTTONS */
 
 .btn {
   display: inline-flex;
@@ -171,16 +191,16 @@ a:hover {
 }
 
 .btn.secondary {
-  background: rgba(255,255,255,0.1);
-  color: var(--white);
-  border-color: rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.05);
+  color: var(--text);
+  border-color: rgba(0,0,0,0.1);
 }
 
 .btn.secondary:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.1);
 }
 
-/* Sections */
+/* SECTIONS */
 
 .section {
   padding: 3.5rem 0;
@@ -201,7 +221,7 @@ a:hover {
   margin: 0.5rem auto 1.5rem;
 }
 
-/* Layout helpers */
+/* LAYOUT HELPERS */
 
 .two-col {
   display: grid;
@@ -220,6 +240,11 @@ a:hover {
   gap: 1.75rem;
 }
 
+.one-col {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .image-card {
   border-radius: var(--radius);
   overflow: hidden;
@@ -233,7 +258,7 @@ a:hover {
   display: block;
 }
 
-/* Cards / features */
+/* FEATURES */
 
 .feature-card {
   background: var(--white);
@@ -246,7 +271,7 @@ a:hover {
   margin-top: 0;
 }
 
-/* Lists */
+/* LISTS */
 
 .bullet-list {
   padding-left: 1.1rem;
@@ -266,22 +291,7 @@ a:hover {
   color: var(--muted);
 }
 
-/* Page hero */
-
-.page-hero {
-  padding: 3rem 0 1rem;
-  background: var(--bg-alt);
-}
-
-.page-hero.small {
-  padding: 2.5rem 0 1rem;
-}
-
-.page-hero h1 {
-  margin: 0 0 0.5rem;
-}
-
-/* Price list */
+/* PRICE LIST */
 
 .price-list {
   margin-top: 1rem;
@@ -310,7 +320,7 @@ a:hover {
   white-space: nowrap;
 }
 
-/* Contact / map */
+/* CONTACT PAGE */
 
 .map-wrapper {
   margin: 1rem 0 1.5rem;
@@ -338,7 +348,7 @@ a:hover {
   padding: 0.25rem 0;
 }
 
-/* Footer */
+/* FOOTER */
 
 .site-footer {
   background: #1f1a17;
@@ -360,7 +370,7 @@ a:hover {
   margin-bottom: 0.2rem;
 }
 
-/* Animations */
+/* ANIMATIONS */
 
 .fade-in {
   opacity: 0;
@@ -373,9 +383,10 @@ a:hover {
   transform: translateY(0);
 }
 
-/* Responsive */
+/* RESPONSIVE */
 
 @media (max-width: 800px) {
+
   .header-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -387,8 +398,23 @@ a:hover {
     margin-right: 1rem;
   }
 
-  .hero {
-    min-height: 55vh;
+  .hero-text {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-logo-wrapper {
+    margin: 1.5rem 0 0;
+  }
+
+  .hero-page-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .page-logo {
+    margin-top: 1rem;
   }
 
   .two-col,

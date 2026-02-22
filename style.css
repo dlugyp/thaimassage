@@ -383,21 +383,38 @@ a:hover {
   transform: translateY(0);
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE FIXES */
 
 @media (max-width: 800px) {
 
+  body {
+    padding: 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  /* HEADER */
   .header-inner {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
   }
 
   .nav a {
-    margin-left: 0;
-    margin-right: 1rem;
+    margin: 0;
   }
 
+  /* INDEX HERO */
   .hero-text {
     flex-direction: column;
     text-align: center;
@@ -407,6 +424,11 @@ a:hover {
     margin: 1.5rem 0 0;
   }
 
+  .hero-logo-img {
+    width: 120px;
+  }
+
+  /* PAGE HERO */
   .hero-page-flex {
     flex-direction: column;
     text-align: center;
@@ -414,17 +436,35 @@ a:hover {
   }
 
   .page-logo {
-    margin-top: 1rem;
+    width: 50%;
+    max-width: 180px;
+    margin-top: 0.5rem;
   }
 
-  .two-col,
-  .two-col.reverse,
-  .three-col {
+  /* PRICE LIST */
+  .price-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
+  }
+
+  /* CONTACT PAGE */
+  .two-col {
     grid-template-columns: 1fr;
   }
 
+  .map-wrapper iframe {
+    height: 220px;
+  }
+
+  /* FOOTER */
   .footer-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 }

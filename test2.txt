@@ -1,1 +1,1 @@
-Test2 changed on master
+Fixed issue
